@@ -74,11 +74,11 @@ function widget:DrawWorld()
 			-- dynamic blue color and opacity based on wind strength
 			local strength = instanceData.windStrength or 0
 			local alpha = math.min(1, 0.3 + (strength / 10) * 0.7) -- map strength -> [0.3,1]
-			-- glColor(0.2, 0.6, 1.0, alpha)
+			-- glColor(0.2, 0.6, 1.0, alpha) -- skipped - setting color for each arrow separately
 
-			-- Determine number of arrows: 1, 3 or 5 based on wind strength (assumption: <3 ->1, <7 ->3, else 5)
+			-- Number of arrows: 1, 3 or 5 - based on wind strength 
 			local arrowCount
-			if strength < 3 then
+			if strength < 3 then -- Magic numbers :D 
 				arrowCount = 1
 			elseif strength < 7 then
 				arrowCount = 3
