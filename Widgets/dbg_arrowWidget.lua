@@ -71,31 +71,70 @@ function widget:DrawWorld()
 				glLineStipple(false)
 			end
             
-            -- TODO Change color to blue arrow - dynamic color and opacity based on wind strength
-			glColor(0, 0, 1, 0.5)
+			-- dynamic blue color and opacity based on wind strength
+			local strength = instanceData.windStrength or 0
+			local alpha = math.min(1, 0.3 + (strength / 10) * 0.7) -- map strength -> [0.3,1]
+			-- glColor(0.2, 0.6, 1.0, alpha)
 
-            -- TODO Create arrow instead of line - Maybe number of arrows with fading color based on the strength
-			
-            local length = 100 + instanceData.windStrength * 10 -- length based on wind strength
-            
-            local relativeEndPos = Vec3(
-                length * math.cos(instanceData.windAzimuth),
-                0,
-                length * math.sin(instanceData.windAzimuth)
-            )
+			-- Determine number of arrows: 1, 3 or 5 based on wind strength (assumption: <3 ->1, <7 ->3, else 5)
+			local arrowCount
+			if strength < 3 then
+				arrowCount = 1
+			elseif strength < 7 then
+				arrowCount = 3
+			else
+				arrowCount = 5
+			end
 
-            DrawLine(
-				{
-					instanceData.unitPos.x,
-					instanceData.unitPos.y,
-					instanceData.unitPos.z
-				}, 
-				{
-					instanceData.unitPos.x + relativeEndPos.x,
-					instanceData.unitPos.y + relativeEndPos.y,
-					instanceData.unitPos.z + relativeEndPos.z
-				}
-			)
+			local length = 100 + strength * 10 -- body length based on wind strength
+
+			-- direction unit on XZ plane
+			local dirX = math.cos(instanceData.windAzimuth)
+			local dirZ = math.sin(instanceData.windAzimuth)
+
+			-- perpendicular unit (to offset left/right arrows)
+			local perpX = -dirZ
+			local perpZ = dirX
+
+			-- lateral spacing between arrows (tweakable)
+			local spacing = 50
+
+			-- head parameters
+			local headLen = math.min(length * 0.3, 40)
+			local headAngleOffset = math.rad(30) -- makes 60° between head lines
+
+			-- draw arrows centered on the unit position, shifted laterally
+			for i = 1, arrowCount do
+				local idx = i - (arrowCount + 1) / 2 -- -n .. 0 .. +n
+				local offset = idx * spacing
+
+				local scale = (1.0 - 0.5 * math.abs(idx) / ((arrowCount - 1) / 2))
+
+				local startX = instanceData.unitPos.x + perpX * offset
+				local startY = instanceData.unitPos.y
+				local startZ = instanceData.unitPos.z + perpZ * offset
+
+				local tipX = startX + dirX * length * scale -- arrows further from center are smaller
+				local tipY = startY
+				local tipZ = startZ + dirZ * length * scale -- arrows further from center are smaller
+				
+				glColor(0.2, 0.6, 1.0*scale, alpha * scale) -- arrows further from center are lighter in color
+
+				-- body of arrow
+				DrawLine({ startX, startY, startZ }, { tipX, tipY, tipZ })
+
+				-- head of arrow
+				local headAngle1 = instanceData.windAzimuth + math.pi + headAngleOffset
+				local headAngle2 = instanceData.windAzimuth + math.pi - headAngleOffset
+
+				local h1x = tipX + headLen * math.cos(headAngle1)
+				local h1z = tipZ + headLen * math.sin(headAngle1)
+				DrawLine({ tipX, tipY, tipZ }, { h1x, tipY, h1z })
+
+				local h2x = tipX + headLen * math.cos(headAngle2)
+				local h2z = tipZ + headLen * math.sin(headAngle2)
+				DrawLine({ tipX, tipY, tipZ }, { h2x, tipY, h2z })
+			end
 		else
 			Spring.Echo("Missing data for wind direction arrow:", instanceKey, instanceData.unitPos, instanceData.windAzimuth, instanceData.windStrength)
 		end
