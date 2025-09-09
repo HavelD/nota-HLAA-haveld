@@ -1,20 +1,5 @@
 {
-	"additionalNodes": [ {
-		"children": [],
-		"id": "y6fAmYDu6qld9C91Wx3BdBk6xOkVI9kY",
-		"nodeType": "luaCommand",
-		"parameters": [ {
-			"name": "var",
-			"value": "test_example"
-		}, {
-			"name": "value",
-			"value": "nota_havel_hlaa.testLine()"
-		}, {
-			"name": "scriptName",
-			"value": "store"
-		} ],
-		"scriptName": "store"
-	} ],
+	"additionalNodes": [],
 	"additionalParameters": {
 		"root": {
 			"height": 88,
@@ -24,110 +9,386 @@
 	"inputs": [],
 	"outputs": [],
 	"properties": {
-		"45wleRRxBWuktbuZFDKt4BNkimNmlUC9": {
+		"2PdiajRMkt2DnQ4zRjADlriuNbsPiht7": {
+			"height": 112,
+			"title": "formation.move",
+			"width": 356,
+			"x": 1229,
+			"y": 178
+		},
+		"7Cb1d9BO60M9Nv8ykBpdZWpiq1Rb8EUc": {
 			"height": 94,
 			"title": "store",
-			"width": 393,
-			"x": 474,
-			"y": 197
+			"width": 413,
+			"x": 1954,
+			"y": 89
 		},
-		"5DkseD0wtnVoCL6vkh2WiJhKLItUcHXV": {
+		"7j0H3UAi2r6KGv3aiA32hKZ4p2GiZ4us": {
+			"height": 60,
+			"title": "repeat",
+			"width": 131,
+			"x": 693,
+			"y": 253
+		},
+		"AB6V9cPbgtracJ7LAOKxr1MpNnjp3ONL": {
+			"height": 112,
+			"title": "formation.move",
+			"width": 356,
+			"x": 1227,
+			"y": 292
+		},
+		"Bd2pVDLUkE4WvN2Ev4JUwFKe3EAoqDre": {
 			"height": 94,
 			"title": "store",
-			"width": 232,
-			"x": 653,
-			"y": -196
+			"width": 873,
+			"x": 1951,
+			"y": 183
 		},
-		"FJH1z8X9tt6qoyAZhsKaoPaR83Y9sBzb": {
+		"GWEjnj0kQ5Q17tfDnMiktNGrLS1wLCqY": {
+			"height": 112,
+			"title": "formation.move",
+			"width": 341,
+			"x": 1976,
+			"y": 449
+		},
+		"GlA8YrrSW0m7hfgiXbT3DmwAwsxGASt0": {
+			"height": 94,
+			"title": "store",
+			"width": 351,
+			"x": 1079,
+			"y": -137
+		},
+		"HdNWDolPJrbAfNNA1oulJa9jZHh2EutI": {
+			"height": 54,
+			"title": "sequence",
+			"width": 143,
+			"x": 1734,
+			"y": 87
+		},
+		"Q3tdPeIGBuPxTQTIXK3EhY9cTXvAOnI4": {
+			"height": 90,
+			"title": "luaCondition",
+			"width": 279,
+			"x": 1629,
+			"y": 520
+		},
+		"UUlVfa58F6UVQCUd83fyn39d9GcwQGgf": {
+			"height": 94,
+			"title": "store",
+			"width": 615,
+			"x": 1074,
+			"y": -42
+		},
+		"V6qSMboCniSUQoyppywiCi0f1UO8ypkd": {
+			"height": 92,
+			"title": "store",
+			"width": 131,
+			"x": 1079,
+			"y": 58
+		},
+		"fQ36o9uRoXbTztkBsWt5GPoRODrO03II": {
 			"height": 60,
 			"title": "sequence",
 			"width": 143,
-			"x": 458,
-			"y": -102
+			"x": 895,
+			"y": -74
 		},
-		"gVyMy7F6r2gGaPY1tPSetPc7P8YdkxGd": {
-			"height": 90,
-			"title": "Common.relativeMove",
-			"width": 225,
-			"x": 667,
-			"y": -67
+		"guRoJZRppr4aPCtmj0QxkdGD7UzGI5tA": {
+			"height": 112,
+			"title": "formation.move",
+			"width": 341,
+			"x": 1980,
+			"y": 559
 		},
-		"gqrxqLpTqMTA76pUdoHhiNH9HVnKJ7tX": {
+		"h63UXdYB9pzIGdP4pAVMT2ecOnVprNoe": {
+			"height": 70,
+			"title": "roleSplit",
+			"width": 202,
+			"x": 212,
+			"y": 165
+		},
+		"hMUFJNqEaIhf9XCYnRwi6psAeb4ycLGl": {
 			"height": 70,
 			"title": "parallel",
 			"width": 202,
-			"x": 212,
-			"y": -238
+			"x": 1273,
+			"y": 528
 		},
-		"y6fAmYDu6qld9C91Wx3BdBk6xOkVI9kY": {
+		"jE51oHjWL4I7diG10ZKp0AVJ7bWl8bOT": {
 			"height": 94,
 			"title": "store",
-			"width": 393,
-			"x": 473,
-			"y": 79
+			"width": 1108,
+			"x": 1956,
+			"y": -3
+		},
+		"n9KUUU3bC3qTaHIxEn2O7S9L5rcBnC6N": {
+			"height": 60,
+			"title": "repeat",
+			"width": 131,
+			"x": 684,
+			"y": -74
+		},
+		"qWG9e65bR07p8iSfqvoVyiT0E47kePXB": {
+			"height": 91,
+			"title": "luaCondition",
+			"width": 303,
+			"x": 867,
+			"y": 242
+		},
+		"uRSgVNbBg8UaNRVhWTnbGT5JQyYl4HL3": {
+			"height": 70,
+			"title": "parallel",
+			"width": 202,
+			"x": 439,
+			"y": 52
+		},
+		"y5dSyodj5Gd3RfF7LJYG1WXrr95draml": {
+			"height": 60,
+			"title": "repeat",
+			"width": 131,
+			"x": 1547,
+			"y": 436
 		}
 	},
 	"roles": [ {
-		"categories": [],
+		"categories": [ "nota_havel_hlaa.commander" ],
 		"name": "Role 0"
+	}, {
+		"categories": [],
+		"name": "Role 1"
 	} ],
 	"root": {
 		"children": [ {
 			"children": [ {
-				"children": [],
-				"id": "5DkseD0wtnVoCL6vkh2WiJhKLItUcHXV",
-				"nodeType": "luaCommand",
-				"parameters": [ {
-					"name": "var",
-					"value": "x"
-				}, {
-					"name": "value",
-					"value": "math.random(500)-250"
-				}, {
-					"name": "scriptName",
-					"value": "store"
+				"children": [ {
+					"children": [ {
+						"children": [],
+						"id": "GlA8YrrSW0m7hfgiXbT3DmwAwsxGASt0",
+						"nodeType": "luaCommand",
+						"parameters": [ {
+							"name": "var",
+							"value": "windInfo"
+						}, {
+							"name": "value",
+							"value": "nota_havel_hlaa.CommanderWindArrow()"
+						}, {
+							"name": "scriptName",
+							"value": "store"
+						} ],
+						"scriptName": "store"
+					}, {
+						"children": [],
+						"id": "UUlVfa58F6UVQCUd83fyn39d9GcwQGgf",
+						"nodeType": "luaCommand",
+						"parameters": [ {
+							"name": "var",
+							"value": "commanderMove"
+						}, {
+							"name": "value",
+							"value": "Vec3(math.cos(windInfo.windAzimuth)*100, 0, math.sin(windInfo.windAzimuth)*100)"
+						}, {
+							"name": "scriptName",
+							"value": "store"
+						} ],
+						"scriptName": "store"
+					}, {
+						"children": [],
+						"id": "V6qSMboCniSUQoyppywiCi0f1UO8ypkd",
+						"nodeType": "luaCommand",
+						"parameters": [ {
+							"name": "var",
+							"value": "repeater"
+						}, {
+							"name": "value",
+							"value": "true"
+						}, {
+							"name": "scriptName",
+							"value": "store"
+						} ],
+						"scriptName": "store"
+					} ],
+					"id": "fQ36o9uRoXbTztkBsWt5GPoRODrO03II",
+					"nodeType": "sequence",
+					"parameters": []
 				} ],
-				"scriptName": "store"
+				"id": "n9KUUU3bC3qTaHIxEn2O7S9L5rcBnC6N",
+				"nodeType": "repeat",
+				"parameters": []
 			}, {
-				"children": [],
-				"id": "gVyMy7F6r2gGaPY1tPSetPc7P8YdkxGd",
-				"nodeType": "luaCommand",
-				"parameters": [ {
-					"name": "dist",
-					"value": "{x = x, z = 0}"
-				}, {
-					"name": "fight",
-					"value": "false"
-				}, {
-					"name": "scriptName",
-					"value": "Common.relativeMove"
+				"children": [ {
+					"children": [ {
+						"children": [],
+						"id": "2PdiajRMkt2DnQ4zRjADlriuNbsPiht7",
+						"nodeType": "luaCommand",
+						"parameters": [ {
+							"name": "position",
+							"value": "windInfo.unitPos + commanderMove"
+						}, {
+							"name": "formation",
+							"value": "formation.Definition(\"wedge\").positions"
+						}, {
+							"name": "fight",
+							"value": "false"
+						}, {
+							"name": "scriptName",
+							"value": "formation.move"
+						} ],
+						"scriptName": "formation.move"
+					}, {
+						"children": [],
+						"id": "AB6V9cPbgtracJ7LAOKxr1MpNnjp3ONL",
+						"nodeType": "luaCommand",
+						"parameters": [ {
+							"name": "position",
+							"value": "windInfo.unitPos + commanderMove"
+						}, {
+							"name": "formation",
+							"value": "formation.Definition(\"wedge\").positions"
+						}, {
+							"name": "fight",
+							"value": "false"
+						}, {
+							"name": "scriptName",
+							"value": "formation.move"
+						} ],
+						"scriptName": "formation.move"
+					} ],
+					"id": "qWG9e65bR07p8iSfqvoVyiT0E47kePXB",
+					"nodeType": "luaCondition",
+					"parameters": [ {
+						"name": "expression",
+						"value": "((repeater == nil) or repeater == false )"
+					}, {
+						"name": "repeat",
+						"value": "false"
+					} ]
 				} ],
-				"scriptName": "Common.relativeMove"
+				"id": "7j0H3UAi2r6KGv3aiA32hKZ4p2GiZ4us",
+				"nodeType": "repeat",
+				"parameters": []
 			} ],
-			"id": "FJH1z8X9tt6qoyAZhsKaoPaR83Y9sBzb",
-			"nodeType": "sequence",
-			"parameters": []
-		}, {
-			"children": [],
-			"id": "45wleRRxBWuktbuZFDKt4BNkimNmlUC9",
-			"nodeType": "luaCommand",
+			"id": "uRSgVNbBg8UaNRVhWTnbGT5JQyYl4HL3",
+			"nodeType": "parallel",
 			"parameters": [ {
-				"name": "var",
-				"value": "test_hl2"
+				"name": "mode",
+				"value": "all-success"
+			} ]
+		}, {
+			"children": [ {
+				"children": [ {
+					"children": [ {
+						"children": [],
+						"id": "jE51oHjWL4I7diG10ZKp0AVJ7bWl8bOT",
+						"nodeType": "luaCommand",
+						"parameters": [ {
+							"name": "var",
+							"value": "commander"
+						}, {
+							"name": "value",
+							"value": "(windInfo ~= nil) and {pos=windInfo.unitPos, azimuth=windInfo.windAzimuth} or {pos = Vec3(0,0,0), azimuth = 0.01}"
+						}, {
+							"name": "scriptName",
+							"value": "store"
+						} ],
+						"scriptName": "store"
+					}, {
+						"children": [],
+						"id": "7Cb1d9BO60M9Nv8ykBpdZWpiq1Rb8EUc",
+						"nodeType": "luaCommand",
+						"parameters": [ {
+							"name": "var",
+							"value": "formDef"
+						}, {
+							"name": "value",
+							"value": "nota_havel_hlaa.havelFormationDefinition(\"line\")"
+						}, {
+							"name": "scriptName",
+							"value": "store"
+						} ],
+						"scriptName": "store"
+					}, {
+						"children": [],
+						"id": "Bd2pVDLUkE4WvN2Ev4JUwFKe3EAoqDre",
+						"nodeType": "luaCommand",
+						"parameters": [ {
+							"name": "var",
+							"value": "formRotated"
+						}, {
+							"name": "value",
+							"value": "formation.StaticTransform(formDef.positions, 90 + commander.azimuth*180/math.pi, nil, formDef.defaults.spacing)"
+						}, {
+							"name": "scriptName",
+							"value": "store"
+						} ],
+						"scriptName": "store"
+					} ],
+					"id": "HdNWDolPJrbAfNNA1oulJa9jZHh2EutI",
+					"nodeType": "sequence",
+					"parameters": []
+				} ],
+				"id": "y5dSyodj5Gd3RfF7LJYG1WXrr95draml",
+				"nodeType": "repeat",
+				"parameters": []
 			}, {
-				"name": "value",
-				"value": "nota_havel_hlaa.CommanderWindArrow()"
-			}, {
-				"name": "scriptName",
-				"value": "store"
+				"children": [ {
+					"children": [],
+					"id": "GWEjnj0kQ5Q17tfDnMiktNGrLS1wLCqY",
+					"nodeType": "luaCommand",
+					"parameters": [ {
+						"name": "position",
+						"value": "commander.pos"
+					}, {
+						"name": "formation",
+						"value": "formRotated"
+					}, {
+						"name": "fight",
+						"value": "false"
+					}, {
+						"name": "scriptName",
+						"value": "formation.move"
+					} ],
+					"scriptName": "formation.move"
+				}, {
+					"children": [],
+					"id": "guRoJZRppr4aPCtmj0QxkdGD7UzGI5tA",
+					"nodeType": "luaCommand",
+					"parameters": [ {
+						"name": "position",
+						"value": "commander.pos"
+					}, {
+						"name": "formation",
+						"value": "formRotated"
+					}, {
+						"name": "fight",
+						"value": "false"
+					}, {
+						"name": "scriptName",
+						"value": "formation.move"
+					} ],
+					"scriptName": "formation.move"
+				} ],
+				"id": "Q3tdPeIGBuPxTQTIXK3EhY9cTXvAOnI4",
+				"nodeType": "luaCondition",
+				"parameters": [ {
+					"name": "expression",
+					"value": "(repeater == nil) or repeater == false "
+				}, {
+					"name": "repeat",
+					"value": "false"
+				} ]
 			} ],
-			"scriptName": "store"
+			"id": "hMUFJNqEaIhf9XCYnRwi6psAeb4ycLGl",
+			"nodeType": "parallel",
+			"parameters": [ {
+				"name": "mode",
+				"value": "all-success"
+			} ]
 		} ],
-		"id": "gqrxqLpTqMTA76pUdoHhiNH9HVnKJ7tX",
-		"nodeType": "parallel",
+		"id": "h63UXdYB9pzIGdP4pAVMT2ecOnVprNoe",
+		"nodeType": "roleSplit",
 		"parameters": [ {
 			"name": "mode",
-			"value": "all-success"
+			"value": "any-result"
 		} ]
 	}
 }
