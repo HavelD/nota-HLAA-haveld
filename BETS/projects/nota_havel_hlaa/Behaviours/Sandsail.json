@@ -1,0 +1,133 @@
+{
+	"additionalNodes": [ {
+		"children": [],
+		"id": "y6fAmYDu6qld9C91Wx3BdBk6xOkVI9kY",
+		"nodeType": "luaCommand",
+		"parameters": [ {
+			"name": "var",
+			"value": "test_example"
+		}, {
+			"name": "value",
+			"value": "nota_havel_hlaa.testLine()"
+		}, {
+			"name": "scriptName",
+			"value": "store"
+		} ],
+		"scriptName": "store"
+	} ],
+	"additionalParameters": {
+		"root": {
+			"height": 88,
+			"width": 180
+		}
+	},
+	"inputs": [],
+	"outputs": [],
+	"properties": {
+		"45wleRRxBWuktbuZFDKt4BNkimNmlUC9": {
+			"height": 94,
+			"title": "store",
+			"width": 393,
+			"x": 474,
+			"y": 197
+		},
+		"5DkseD0wtnVoCL6vkh2WiJhKLItUcHXV": {
+			"height": 94,
+			"title": "store",
+			"width": 232,
+			"x": 653,
+			"y": -196
+		},
+		"FJH1z8X9tt6qoyAZhsKaoPaR83Y9sBzb": {
+			"height": 60,
+			"title": "sequence",
+			"width": 143,
+			"x": 458,
+			"y": -102
+		},
+		"gVyMy7F6r2gGaPY1tPSetPc7P8YdkxGd": {
+			"height": 90,
+			"title": "Common.relativeMove",
+			"width": 225,
+			"x": 667,
+			"y": -67
+		},
+		"gqrxqLpTqMTA76pUdoHhiNH9HVnKJ7tX": {
+			"height": 70,
+			"title": "parallel",
+			"width": 202,
+			"x": 212,
+			"y": -238
+		},
+		"y6fAmYDu6qld9C91Wx3BdBk6xOkVI9kY": {
+			"height": 94,
+			"title": "store",
+			"width": 393,
+			"x": 473,
+			"y": 79
+		}
+	},
+	"roles": [ {
+		"categories": [],
+		"name": "Role 0"
+	} ],
+	"root": {
+		"children": [ {
+			"children": [ {
+				"children": [],
+				"id": "5DkseD0wtnVoCL6vkh2WiJhKLItUcHXV",
+				"nodeType": "luaCommand",
+				"parameters": [ {
+					"name": "var",
+					"value": "x"
+				}, {
+					"name": "value",
+					"value": "math.random(500)-250"
+				}, {
+					"name": "scriptName",
+					"value": "store"
+				} ],
+				"scriptName": "store"
+			}, {
+				"children": [],
+				"id": "gVyMy7F6r2gGaPY1tPSetPc7P8YdkxGd",
+				"nodeType": "luaCommand",
+				"parameters": [ {
+					"name": "dist",
+					"value": "{x = x, z = 0}"
+				}, {
+					"name": "fight",
+					"value": "false"
+				}, {
+					"name": "scriptName",
+					"value": "Common.relativeMove"
+				} ],
+				"scriptName": "Common.relativeMove"
+			} ],
+			"id": "FJH1z8X9tt6qoyAZhsKaoPaR83Y9sBzb",
+			"nodeType": "sequence",
+			"parameters": []
+		}, {
+			"children": [],
+			"id": "45wleRRxBWuktbuZFDKt4BNkimNmlUC9",
+			"nodeType": "luaCommand",
+			"parameters": [ {
+				"name": "var",
+				"value": "test_hl2"
+			}, {
+				"name": "value",
+				"value": "nota_havel_hlaa.CommanderWindArrow()"
+			}, {
+				"name": "scriptName",
+				"value": "store"
+			} ],
+			"scriptName": "store"
+		} ],
+		"id": "gqrxqLpTqMTA76pUdoHhiNH9HVnKJ7tX",
+		"nodeType": "parallel",
+		"parameters": [ {
+			"name": "mode",
+			"value": "all-success"
+		} ]
+	}
+}

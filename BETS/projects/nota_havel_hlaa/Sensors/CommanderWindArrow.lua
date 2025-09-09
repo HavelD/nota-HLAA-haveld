@@ -1,13 +1,10 @@
 local sensorInfo = {
 	name = "CommanderWindArrow",
 	desc = "Sends data to air direction arrow widget",
-	author = "PepeAmpere",
-	date = "2018-04-16",
+	author = "haveld", -- original: "PepeAmpere"
+	date = "2025-09-08",
 	license = "MIT",
 }
-
--- TODO - return direction as vector
-
 
 -- get madatory module operators
 VFS.Include("modules.lua") -- modules table
@@ -20,7 +17,7 @@ local EVAL_PERIOD_DEFAULT = -1 -- acutal, no caching
 
 function getInfo()
 	return {
-		period = EVAL_PERIOD_DEFAULT 
+		period = EVAL_PERIOD_DEFAULT
 	}
 end
 
@@ -55,12 +52,6 @@ return function()
 				}
 	end
 end
-
--- TODO 
--- uprav sensor info
--- tuto zisti poziciu commandera a smer vetra
--- posli to do widgetu, aby to vykreslil
--- uprav LuaID pre rozoznanie widgetom
 
 --  aktualna dilema - mam priamo v vykreslovacom widgete pocitat sipky? Alebo vsetko predpocitat tu a tam poslat len velky zoznam
 --  Treba pozret ako sa to robi v inych widgetoch
