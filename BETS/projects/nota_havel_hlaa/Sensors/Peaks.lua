@@ -27,29 +27,40 @@ local checkPerSquare = 2
 -- maxheight = core.MissionInfo().areaHeight
 
 -- @description return current wind statistics
-return function(hillHeightThreshold, checkGranularity)
-    if hillHeightThreshold == nil then
-        hillHeightThreshold = 50 -- minimal height to be considered a hill
+return function(params)
+    if params == nil then
+        params = {}
     end
-    
-    local granularity = checkGranularity ~= nil and checkGranularity or checkPerSquare -- missing argument handling
 
-    local areaCheckStep = mapWidth / (granularity * Game.mapX * sizingFix) -- should be 4 times (2x2) per square
-    
+    local threshold = params.hillHeightThreshold  -- No Default - using nil means no thresholding
+    -- no-parameter handling - if granularity (in map size units - e.g. 256 is good start)
+    local areaCheckStep = (params.checkGranularity ~= nil) and params.checkGranularity or (mapWidth / (checkPerSquare * Game.mapX * sizingFix)) -- should be 4 times (2x2) per square
+
     local maxIndexX = math.floor(mapWidth / areaCheckStep)
     local maxIndexZ = math.floor(mapHeight / areaCheckStep)
     local gridHeight = {}
+    local aboveThreshold = {}
+    local mapMinHeight = math.huge
 
     -- Getting height of each point in the grid
     for x = 1, maxIndexX do
         gridHeight[x] = {}
+        aboveThreshold[x] = {}
         for z = 1, maxIndexZ do
             local heightHere = getHeight(x * areaCheckStep, z * areaCheckStep)
             gridHeight[x][z] = heightHere --Vec3(x * areaCheckStep, heightHere, z * areaCheckStep)
+            if threshold ~= nil then
+                aboveThreshold[x][z] = (heightHere >= threshold) and true or false -- if no threshold given, all are false
+            end
+            
+            -- Update map lowest point height
+            if heightHere < mapMinHeight then
+                mapMinHeight = heightHere
+            end
         end
     end
 
-    -- kernel - filtering and keeping local max height and plateaus 
+    -- kernel - filtering and keeping local max height and plateaus
     -- looking in 4 directions - N, E, S, W
     -- if point is higher or equal than all 4 neighbours, it is local max, add to new grid a true value, else false. it is a flag that it is local max
     local kernel = {
@@ -62,15 +73,18 @@ return function(hillHeightThreshold, checkGranularity)
     for x = 1, maxIndexX do
         localMax[x] = {}
         for z = 1, maxIndexZ do
-            local isLocalMax = true
-            for i = 1, #kernel do
-                local k = kernel[i]
-                local neighborX = x + k[1]
-                local neighborZ = z + k[2]
-                if neighborX >= 1 and neighborX <= maxIndexX and neighborZ >= 1 and neighborZ <= maxIndexZ then
-                    if gridHeight[neighborX][neighborZ] > gridHeight[x][z] then
-                        isLocalMax = false
-                        break
+            local isLocalMax = false
+            if (gridHeight[x][z] > (mapMinHeight + 1)) then -- or (threshold ~= nil and not aboveThreshold[x][z]) then
+                isLocalMax = true
+                for i = 1, #kernel do
+                    local k = kernel[i]
+                    local neighborX = x + k[1]
+                    local neighborZ = z + k[2]
+                    if neighborX >= 1 and neighborX <= maxIndexX and neighborZ >= 1 and neighborZ <= maxIndexZ then
+                        if gridHeight[neighborX][neighborZ] > gridHeight[x][z] then
+                            isLocalMax = false
+                            break
+                        end
                     end
                 end
             end
@@ -137,11 +151,17 @@ return function(hillHeightThreshold, checkGranularity)
             end
         end
     end
+    
+    peaksRelative = {}
 
 	return {
-		gridHeightMap = gridHeight,
         peaks = peaks,
         stepSize = areaCheckStep,
-        threshold = hillHeightThreshold,
+        developer = {
+            minHeight = mapMinHeight,
+            threshold = threshold,
+            gridHeightMap = gridHeight,
+            localMaxMap = localMax
+        }
 	}
 end
