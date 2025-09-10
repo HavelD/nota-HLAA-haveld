@@ -78,9 +78,11 @@ return function(mapPoints, allowGroups)
             for i = 1, (#units - #formation) do
                 if iterator > #formation then
                     iterator = 1
-                    table.insert(formation, Vec3(0,0,0)) -- relative position to anchor
+                    local randomPosX = math.random(10, 40) * ((math.random(0,1) == 0) and -1 or 1) -- random x pos around anchor
+                    local randomPosZ = math.random(10, 40) * ((math.random(0,1) == 0) and -1 or 1) -- random z pos around anchor                
+                    table.insert(formation, Vec3(randomPosX, 0, randomPosZ)) -- relative position to anchor
                 else
-                    table.insert(formation, formation[iterator])
+                    table.insert(formation, formation[iterator]) -- We dont need random pos here, because These positions do not trigger "position reached" flag - so I don't care
                 end
                 iterator = iterator + 1
             end

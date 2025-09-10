@@ -13,120 +13,78 @@
 			"height": 112,
 			"title": "formation.move",
 			"width": 356,
-			"x": 1331,
-			"y": 381
-		},
-		"3MTyxppCGQxw6eCzetkP7p29Osoucc2Z": {
-			"height": 94,
-			"title": "store",
-			"width": 315,
-			"x": 1464,
-			"y": 27
+			"x": 776,
+			"y": 243
 		},
 		"52mcGnfodL6vwMLXgabRFVKbQtybMJHF": {
 			"height": 60,
 			"title": "sequence",
 			"width": 143,
-			"x": 1000,
-			"y": 320
+			"x": 549,
+			"y": 226
 		},
 		"9bUxJFxTupbKmRT8jTDafmnCBamm9lVY": {
 			"height": 94,
 			"title": "store",
-			"width": 562,
-			"x": 831,
-			"y": -52
-		},
-		"A3RVKjEDXF9roqJYpkiEUu6ekXOYRKUl": {
-			"height": 94,
-			"title": "store",
-			"width": 315,
-			"x": 1461,
-			"y": -77
-		},
-		"BEPUy8Mi0N77EZZOMiEVu7v31zXkyzCY": {
-			"height": 54,
-			"title": "sequence",
-			"width": 145,
-			"x": 1258,
-			"y": -227
-		},
-		"HeLi1auyVxTw8FPUbwjaIHqTQxC8YN67": {
-			"height": 94,
-			"title": "store",
-			"width": 482,
-			"x": 1324,
-			"y": 168
+			"width": 720,
+			"x": 771,
+			"y": -184
 		},
 		"KefkqvmmHhlbLUNEJBRhqaM0VwR64eC4": {
 			"height": 94,
 			"title": "store",
 			"width": 272,
-			"x": 830,
-			"y": -163
+			"x": 770,
+			"y": -384
 		},
-		"NG9Uk7wC5XovwcpBnHWY8F6BjbjeyGzZ": {
-			"height": 60,
-			"title": "sequence",
-			"width": 143,
-			"x": 482,
-			"y": -120
+		"W3ThAloBlaNKqRqXStpGe5BvTGfGvloF": {
+			"height": 94,
+			"title": "store",
+			"width": 302,
+			"x": 773,
+			"y": -283
 		},
 		"W5BzAQoAAZkTxROwcRQqbmeKcm5BM7CA": {
 			"height": 90,
 			"title": "luaCondition",
 			"width": 194,
-			"x": 252,
+			"x": 240,
 			"y": -1
 		},
 		"YsbfyV3ZBMYqWmWPdHo36HBHTEkX1CR6": {
 			"height": 92,
 			"title": "store",
 			"width": 144,
-			"x": 832,
-			"y": 140
+			"x": 772,
+			"y": 8
 		},
 		"ZOCdkN0fnrfi6gaei60IzSdcrZpYnHlE": {
 			"height": 94,
 			"title": "store",
 			"width": 360,
-			"x": 832,
-			"y": 44
-		},
-		"cLxloR3TYRKa3uESbyyAHoQqLrUFF3JB": {
-			"height": 94,
-			"title": "store",
-			"width": 227,
-			"x": 1463,
-			"y": -175
+			"x": 772,
+			"y": -88
 		},
 		"oF5uExWqVTe2KLe8DAr8H9q1GSHzEDGL": {
 			"height": 94,
 			"title": "store",
 			"width": 581,
-			"x": 1321,
-			"y": 263
+			"x": 768,
+			"y": 141
 		},
 		"pdP3pYyX44GD4xe5yXWbhDNBMwAOMVCs": {
 			"height": 60,
 			"title": "sequence",
 			"width": 143,
-			"x": 653,
-			"y": -40
-		},
-		"rvB8tWMeFouG2v3x5Fdd8saZkjtTLKFD": {
-			"height": 94,
-			"title": "store",
-			"width": 198,
-			"x": 1469,
-			"y": -275
+			"x": 548,
+			"y": -171
 		},
 		"uwEZqxVhmWjANIW84BWMdZ8HgJzrXEat": {
 			"height": 55,
 			"title": "nota_common.manualMissionEnd",
 			"width": 296,
-			"x": 1330,
-			"y": 491
+			"x": 774,
+			"y": 364
 		}
 	},
 	"roles": [ {
@@ -139,156 +97,86 @@
 	"root": {
 		"children": [ {
 			"children": [ {
-				"children": [ {
-					"children": [],
-					"id": "rvB8tWMeFouG2v3x5Fdd8saZkjtTLKFD",
-					"nodeType": "luaCommand",
-					"parameters": [ {
-						"name": "var",
-						"value": "info"
-					}, {
-						"name": "value",
-						"value": "core.MissionInfo()"
-					}, {
-						"name": "scriptName",
-						"value": "store"
-					} ],
-					"scriptName": "store"
-				}, {
-					"children": [],
-					"id": "cLxloR3TYRKa3uESbyyAHoQqLrUFF3JB",
-					"nodeType": "luaCommand",
-					"parameters": [ {
-						"name": "var",
-						"value": "mapInfo"
-					}, {
-						"name": "value",
-						"value": "Game"
-					}, {
-						"name": "scriptName",
-						"value": "store"
-					} ],
-					"scriptName": "store"
-				}, {
-					"children": [],
-					"id": "A3RVKjEDXF9roqJYpkiEUu6ekXOYRKUl",
-					"nodeType": "luaCommand",
-					"parameters": [ {
-						"name": "var",
-						"value": "Hill"
-					}, {
-						"name": "value",
-						"value": "Spring.GetGroundHeight(1400, 280)"
-					}, {
-						"name": "scriptName",
-						"value": "store"
-					} ],
-					"scriptName": "store"
-				}, {
-					"children": [],
-					"id": "3MTyxppCGQxw6eCzetkP7p29Osoucc2Z",
-					"nodeType": "luaCommand",
-					"parameters": [ {
-						"name": "var",
-						"value": "FlatStart"
-					}, {
-						"name": "value",
-						"value": "Spring.GetGroundHeight(500, 500)"
-					}, {
-						"name": "scriptName",
-						"value": "store"
-					} ],
-					"scriptName": "store"
-				} ],
-				"id": "BEPUy8Mi0N77EZZOMiEVu7v31zXkyzCY",
-				"nodeType": "sequence",
-				"parameters": []
-			}, {
-				"children": [ {
-					"children": [],
-					"id": "KefkqvmmHhlbLUNEJBRhqaM0VwR64eC4",
-					"nodeType": "luaCommand",
-					"parameters": [ {
-						"name": "var",
-						"value": "hillHeight"
-					}, {
-						"name": "value",
-						"value": "core.MissionInfo().areaHeight"
-					}, {
-						"name": "scriptName",
-						"value": "store"
-					} ],
-					"scriptName": "store"
-				}, {
-					"children": [],
-					"id": "9bUxJFxTupbKmRT8jTDafmnCBamm9lVY",
-					"nodeType": "luaCommand",
-					"parameters": [ {
-						"name": "var",
-						"value": "PeaksList"
-					}, {
-						"name": "value",
-						"value": "nota_havel_hlaa.Peaks({hillHeightThreshold = 130, checkGranularity=64})"
-					}, {
-						"name": "scriptName",
-						"value": "store"
-					} ],
-					"scriptName": "store"
-				}, {
-					"children": [],
-					"id": "ZOCdkN0fnrfi6gaei60IzSdcrZpYnHlE",
-					"nodeType": "luaCommand",
-					"parameters": [ {
-						"name": "var",
-						"value": "TerrainWidget"
-					}, {
-						"name": "value",
-						"value": "nota_havel_hlaa.widgetHelpHills(PeaksList)"
-					}, {
-						"name": "scriptName",
-						"value": "store"
-					} ],
-					"scriptName": "store"
-				}, {
-					"children": [],
-					"id": "YsbfyV3ZBMYqWmWPdHo36HBHTEkX1CR6",
-					"nodeType": "luaCommand",
-					"parameters": [ {
-						"name": "var",
-						"value": "HillsLoaded"
-					}, {
-						"name": "value",
-						"value": "true"
-					}, {
-						"name": "scriptName",
-						"value": "store"
-					} ],
-					"scriptName": "store"
-				} ],
-				"id": "pdP3pYyX44GD4xe5yXWbhDNBMwAOMVCs",
-				"nodeType": "sequence",
-				"parameters": []
-			} ],
-			"id": "NG9Uk7wC5XovwcpBnHWY8F6BjbjeyGzZ",
-			"nodeType": "sequence",
-			"parameters": []
-		}, {
-			"children": [ {
 				"children": [],
-				"id": "HeLi1auyVxTw8FPUbwjaIHqTQxC8YN67",
+				"id": "KefkqvmmHhlbLUNEJBRhqaM0VwR64eC4",
 				"nodeType": "luaCommand",
 				"parameters": [ {
 					"name": "var",
-					"value": "tempRefined"
+					"value": "hillHeight"
 				}, {
 					"name": "value",
-					"value": "{PeaksList.peaks[1], PeaksList.peaks[2], PeaksList.peaks[3]}"
+					"value": "core.MissionInfo().areaHeight"
 				}, {
 					"name": "scriptName",
 					"value": "store"
 				} ],
 				"scriptName": "store"
 			}, {
+				"children": [],
+				"id": "W3ThAloBlaNKqRqXStpGe5BvTGfGvloF",
+				"nodeType": "luaCommand",
+				"parameters": [ {
+					"name": "var",
+					"value": "Enemies"
+				}, {
+					"name": "value",
+					"value": "core.MissionInfo().enemyPositions"
+				}, {
+					"name": "scriptName",
+					"value": "store"
+				} ],
+				"scriptName": "store"
+			}, {
+				"children": [],
+				"id": "9bUxJFxTupbKmRT8jTDafmnCBamm9lVY",
+				"nodeType": "luaCommand",
+				"parameters": [ {
+					"name": "var",
+					"value": "PeaksList"
+				}, {
+					"name": "value",
+					"value": "nota_havel_hlaa.Peaks({hillHeightThreshold = 130, checkGranularity=64, removeClosest=Enemies})"
+				}, {
+					"name": "scriptName",
+					"value": "store"
+				} ],
+				"scriptName": "store"
+			}, {
+				"children": [],
+				"id": "ZOCdkN0fnrfi6gaei60IzSdcrZpYnHlE",
+				"nodeType": "luaCommand",
+				"parameters": [ {
+					"name": "var",
+					"value": "TerrainWidget"
+				}, {
+					"name": "value",
+					"value": "nota_havel_hlaa.widgetHelpHills(PeaksList)"
+				}, {
+					"name": "scriptName",
+					"value": "store"
+				} ],
+				"scriptName": "store"
+			}, {
+				"children": [],
+				"id": "YsbfyV3ZBMYqWmWPdHo36HBHTEkX1CR6",
+				"nodeType": "luaCommand",
+				"parameters": [ {
+					"name": "var",
+					"value": "HillsLoaded"
+				}, {
+					"name": "value",
+					"value": "true"
+				}, {
+					"name": "scriptName",
+					"value": "store"
+				} ],
+				"scriptName": "store"
+			} ],
+			"id": "pdP3pYyX44GD4xe5yXWbhDNBMwAOMVCs",
+			"nodeType": "sequence",
+			"parameters": []
+		}, {
+			"children": [ {
 				"children": [],
 				"id": "oF5uExWqVTe2KLe8DAr8H9q1GSHzEDGL",
 				"nodeType": "luaCommand",
@@ -297,7 +185,7 @@
 					"value": "formationPos"
 				}, {
 					"name": "value",
-					"value": "nota_havel_hlaa.AbsolutePointsToFormation(tempRefined,true)"
+					"value": "nota_havel_hlaa.AbsolutePointsToFormation(PeaksList.peaks, true)"
 				}, {
 					"name": "scriptName",
 					"value": "store"

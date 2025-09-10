@@ -151,8 +151,39 @@ return function(params)
             end
         end
     end
-    
-    peaksRelative = {}
+
+    -- Putting it here just for ease and less files
+    if params.removeClosest ~= nil then
+        local removeList = params.removeClosest
+        if type(removeList) ~= "table" then
+            removeList = {removeList}
+        end
+
+        local toBeRemoved = {}
+        for _, removePos in ipairs(removeList) do
+            if (removePos.x ~= nil and removePos.z ~= nil) then
+                local closestIndex = nil
+                local closestDist = math.huge
+                for i = 1, #peaks do
+                    local peak = peaks[i]
+                    local dist = math.sqrt((peak.x - removePos.x)^2 + (peak.z - removePos.z)^2)
+                    if dist < closestDist then
+                        closestDist = dist
+                        closestIndex = i
+                    end
+                end
+                if closestIndex ~= nil then
+                    table.insert(toBeRemoved, closestIndex)
+                end
+            end
+        end
+
+        -- Remove the marked peaks
+        for i = #toBeRemoved, 1, -1 do
+            table.remove(peaks, toBeRemoved[i])
+        end
+    end
+
 
 	return {
         peaks = peaks,
