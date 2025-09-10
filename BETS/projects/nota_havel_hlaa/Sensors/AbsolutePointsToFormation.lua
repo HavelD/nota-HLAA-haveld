@@ -74,7 +74,7 @@ return function(mapPoints, allowGroups)
         if allowGroups ~= nil and allowGroups then
             Spring.Echo("PointsToFormation: INFO - Groups are allowed - repeating formation to fit units")
             -- trim formation to number of units
-            local iterator = 1
+            local iterator = math.huge
             for i = 1, (#units - #formation) do
                 if iterator > #formation then
                     iterator = 1
