@@ -77,8 +77,9 @@ function widget:DrawWorld()
 			-- glColor(0.2, 0.6, 1.0, alpha) -- skipped - setting color for each arrow separately
 
 			-- Number of arrows: 1, 3 or 5 - based on wind strength 
+			
 			local arrowCount
-			if strength < 3 then -- Magic numbers :D 
+			if strength < 3 then -- Magic numbers :D - Now i Know i can use [number Game.windMin, number Game.windMax]
 				arrowCount = 1
 			elseif strength < 7 then
 				arrowCount = 3
