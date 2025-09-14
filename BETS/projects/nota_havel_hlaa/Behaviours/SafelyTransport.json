@@ -36,6 +36,21 @@
 		"parameters": []
 	}, {
 		"children": [],
+		"id": "J83wprO4w3GQhyAHSIKz2hL4mCjLDwt7",
+		"nodeType": "luaCommand",
+		"parameters": [ {
+			"name": "var",
+			"value": "WidgetDisplay"
+		}, {
+			"name": "value",
+			"value": "nota_havel_hlaa.widgetHelpHills(PeaksMap)"
+		}, {
+			"name": "scriptName",
+			"value": "store"
+		} ],
+		"scriptName": "store"
+	}, {
+		"children": [],
 		"id": "PXpXJnwhA0SITIyFiCg8sPNTDTpZgS5y",
 		"nodeType": "luaCommand",
 		"parameters": [ {
@@ -91,6 +106,13 @@
 	} ],
 	"outputs": [],
 	"properties": {
+		"1omQXhJnRwIEH88LSo5gyL4wUoJJ3rWM": {
+			"height": 94,
+			"title": "store",
+			"width": 633,
+			"x": 1740,
+			"y": 249
+		},
 		"3B6jOtPTjMMkwtqFuax1WaVGBXisK3pl": {
 			"height": 60,
 			"title": "sequence",
@@ -115,9 +137,9 @@
 		"CuASjwVv4Sh3YlSyl5g6jiA8iL3fwlC4": {
 			"height": 94,
 			"title": "store",
-			"width": 480,
-			"x": 774,
-			"y": -53
+			"width": 503,
+			"x": 1743,
+			"y": 52
 		},
 		"FyLEsTGJPKR3d2jFxdEsK8x6XnRAcIAP": {
 			"height": 60,
@@ -143,9 +165,9 @@
 		"J83wprO4w3GQhyAHSIKz2hL4mCjLDwt7": {
 			"height": 95,
 			"title": "store",
-			"width": 338,
-			"x": 1816,
-			"y": -58
+			"width": 367,
+			"x": 1818,
+			"y": -63
 		},
 		"MLY77XVbB1JsPbV4li3LHfvDXSSYJMNh": {
 			"height": 92,
@@ -158,8 +180,8 @@
 			"height": 92,
 			"title": "nota_havel_hlaa.FollowPathSimple",
 			"width": 283,
-			"x": 1117,
-			"y": 73
+			"x": 1104,
+			"y": 54
 		},
 		"PXpXJnwhA0SITIyFiCg8sPNTDTpZgS5y": {
 			"height": 112,
@@ -185,7 +207,7 @@
 		"VXItLCfancPFpAJM7AtRjDFOvYCYqO2C": {
 			"height": 95,
 			"title": "store",
-			"width": 242,
+			"width": 390,
 			"x": 1824,
 			"y": -184
 		},
@@ -200,8 +222,8 @@
 			"height": 60,
 			"title": "sequence",
 			"width": 143,
-			"x": 515,
-			"y": -8
+			"x": 1363,
+			"y": -30
 		},
 		"ZfpyzHzZqlC0KCH0eoV06uRSDHs1pV29": {
 			"height": 97,
@@ -223,6 +245,20 @@
 			"width": 132,
 			"x": 800,
 			"y": 806
+		},
+		"hdv72XSrvCZsJ7bb6la79lrhnsXib9Xa": {
+			"height": 72,
+			"title": "wait",
+			"width": 131,
+			"x": 1824,
+			"y": 344
+		},
+		"mvCHAX28vDkcGjrPAwDfM0HDT7lNXN20": {
+			"height": 94,
+			"title": "store",
+			"width": 503,
+			"x": 1736,
+			"y": 151
 		},
 		"nQfkEZAWLa5lZQfHnyGUrLHxlHO3vkYt": {
 			"height": 72,
@@ -300,25 +336,10 @@
 				"nodeType": "luaCommand",
 				"parameters": [ {
 					"name": "var",
-					"value": "Peaks"
+					"value": "PeaksMap"
 				}, {
 					"name": "value",
-					"value": "nota_havel_hlaa.Peaks()"
-				}, {
-					"name": "scriptName",
-					"value": "store"
-				} ],
-				"scriptName": "store"
-			}, {
-				"children": [],
-				"id": "J83wprO4w3GQhyAHSIKz2hL4mCjLDwt7",
-				"nodeType": "luaCommand",
-				"parameters": [ {
-					"name": "var",
-					"value": "KA"
-				}, {
-					"name": "value",
-					"value": "nota_havel_hlaa.widgetHelpHills(Peaks)"
+					"value": "nota_havel_hlaa.Peaks({hillHeightThreshold=1})"
 				}, {
 					"name": "scriptName",
 					"value": "store"
@@ -335,15 +356,53 @@
 				"nodeType": "luaCommand",
 				"parameters": [ {
 					"name": "var",
-					"value": "TravelPath"
+					"value": "CalculatedSafePath"
 				}, {
 					"name": "value",
-					"value": "nota_havel_hlaa.FindSafePath(Transporter, Package)"
+					"value": "nota_havel_hlaa.FindSafePath(Transporter, Package, PeaksMap)"
 				}, {
 					"name": "scriptName",
 					"value": "store"
 				} ],
 				"scriptName": "store"
+			}, {
+				"children": [],
+				"id": "mvCHAX28vDkcGjrPAwDfM0HDT7lNXN20",
+				"nodeType": "luaCommand",
+				"parameters": [ {
+					"name": "var",
+					"value": "TravelPath"
+				}, {
+					"name": "value",
+					"value": "CalculatedSafePath.path"
+				}, {
+					"name": "scriptName",
+					"value": "store"
+				} ],
+				"scriptName": "store"
+			}, {
+				"children": [],
+				"id": "1omQXhJnRwIEH88LSo5gyL4wUoJJ3rWM",
+				"nodeType": "luaCommand",
+				"parameters": [ {
+					"name": "var",
+					"value": "WidgetData"
+				}, {
+					"name": "value",
+					"value": "nota_havel_hlaa.widgetHelpPath(CalculatedSafePath)"
+				}, {
+					"name": "scriptName",
+					"value": "store"
+				} ],
+				"scriptName": "store"
+			}, {
+				"children": [],
+				"id": "hdv72XSrvCZsJ7bb6la79lrhnsXib9Xa",
+				"nodeType": "wait",
+				"parameters": [ {
+					"name": "time",
+					"value": 5
+				} ]
 			} ],
 			"id": "ZQzGyn2NqZNVgmmogZpSp5mAmywl5zeA",
 			"nodeType": "sequence",

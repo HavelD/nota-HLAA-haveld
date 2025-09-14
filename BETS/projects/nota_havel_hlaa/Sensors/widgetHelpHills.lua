@@ -13,7 +13,7 @@ VFS.Include(modules.attach.data.path .. modules.attach.data.head) -- attach lib 
 -- get other madatory dependencies
 attach.Module(modules, "message") -- communication backend load
 
-local EVAL_PERIOD_DEFAULT = -1 -- acutal, no caching
+local EVAL_PERIOD_DEFAULT = 1 -- cache - nothing changes on map
 
 function getInfo()
 	return {
