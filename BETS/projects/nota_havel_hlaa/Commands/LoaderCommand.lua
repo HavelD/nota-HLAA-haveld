@@ -42,9 +42,14 @@ local SpringGiveOrderToUnit = Spring.GiveOrderToUnit
 local THRESHOLD_DIST = 25
 
 local function ClearState(self)
+	self.ordersGiven = {}
 end
 
 function Run(self, units, parameter)
+	if self.ordersGiven == nil then
+		self.ordersGiven = {}
+	end
+
 	local targetUnitID = parameter.targetUnitID -- can be single ID or array of IDs
 	local load = parameter.load -- boolean
 	local fleet = parameter.fleet -- array of loader unit IDs, if empty use all selected units
@@ -79,23 +84,58 @@ function Run(self, units, parameter)
 			return FAILURE
 		end
 	end
-	
+
 	-- process each loader unit
 	for i = 1, #loaderUnits do
 		local loaderID = loaderUnits[i]
 		local targetID = targetUnitIDs[i]
+
+		if self.ordersGiven[loaderID] == nil then
+			self.ordersGiven[loaderID] = loaderID -- hack - loader cannot load itself so this is kinda "false"
+		end
 		
+		tX, tY, tZ = SpringGetUnitPosition(targetID)
+
 		Spring.Echo("LoaderCommand: Commanding loader unit " .. loaderID .. " to " .. (load and "load" or "unload") .. " target unit " .. targetID)
 		-- give appropriate command
+		-- Spring.Echo("Unit Transporter LOADER:", Spring.GetUnitTransporter(loaderID))
+		-- Spring.Echo("Is Transporting LOADER:", Spring.GetUnitIsTransporting(loaderID))
+		Spring.Echo("Unit Transporter TARGET:", Spring.GetUnitTransporter(targetID))
+		-- Spring.Echo("Is Transporting TARGET:", Spring.GetUnitIsTransporting(targetID))
 		if load then
-			SpringGiveOrderToUnit(loaderID, CMD.LOAD_UNITS, {targetID}, {"shift"})
+			if Spring.GetUnitTransporter(targetID) == loaderID then
+				Spring.Echo("LoaderCommand: Target unit " .. targetID .. " is already loaded, skipping.")
+			elseif self.ordersGiven[loaderID] ~= targetID then
+				SpringGiveOrderToUnit(loaderID, CMD.LOAD_UNITS, {tX, tY, tZ, 50}, {"shift"}) -- alt to prevent shift-load ???
+				Spring.Echo("LoaderCommand: Loader unit " .. loaderID .. " ordered to load target unit " .. targetID)
+				self.ordersGiven[loaderID] = targetID
+			end
+			
 		else
-			SpringGiveOrderToUnit(loaderID, CMD.UNLOAD_UNITS, {targetID}, {"shift"}) --  {"shift", "alt"}) -- alt to prevent shift-unload ???
+			SpringGiveOrderToUnit(loaderID, CMD.UNLOAD_UNITS, {tX, tY, tZ, 250}, {"shift"}) --  {"shift", "alt"}) -- alt to prevent shift-unload ???
+		end
+	end
+
+	local finished = true
+	for i = 1, #loaderUnits do
+		local loaderID = loaderUnits[i]
+		local targetID = targetUnitIDs[i]
+		
+		local pairLoaded = Spring.GetUnitTransporter(targetID) == loaderID
+		
+		if load ~= pairLoaded then
+			finished = false
+			break
 		end
 	end
 	
+	if finished then
+		return SUCCESS
+	else
+		return RUNNING
+	end
 	-- return immediate success since we just give commands
-	return RUNNING
+	-- return SUCCESS
 end
 
 

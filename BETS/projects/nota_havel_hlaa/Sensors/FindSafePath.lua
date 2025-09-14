@@ -55,6 +55,6 @@ return function(startPosition, endPosition)
         return {}
     end
 
-    local path = {startpos, endpos} -- temp straight line
+    local path = {startpos, endpos-Vec3(100,0,100)} -- temp straight line
 	return path
 end

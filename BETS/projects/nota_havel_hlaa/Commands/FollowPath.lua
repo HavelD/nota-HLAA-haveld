@@ -1,5 +1,5 @@
 local sensorInfo = {
-	name = "FollowPath-OLD",
+	name = "FollowPathOLD",
 	desc = "Follow a path defined by a series of points",
 	author = "haveld",
 	date = "2025-09-12",
