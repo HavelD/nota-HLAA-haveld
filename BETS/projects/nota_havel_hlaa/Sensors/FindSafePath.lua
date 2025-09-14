@@ -23,26 +23,38 @@ local mapHeight = Game.mapSizeZ
 local sizingFix = 2
 local checkPerSquare = 2
 
+-- speedups
+local SpringGetUnitPosition = Spring.GetUnitPosition
+
 -- maxheight = core.MissionInfo().areaHeight
 
 --- @description return a safe path between two positions
---- @param params table A table containing the parameters for the function:
----   @field startpos table|number The starting position as a Vec3 or a unit ID.
----   @field endpos table|number The ending position as a Vec3 or a unit ID.
+--- @param startpos table|number The starting position as a Vec3 or a unit ID.
+--- @param endpos table|number The ending position as a Vec3 or a unit ID.
 --- @return table A table representing the calculated path. Returns an empty table if the input is invalid.
-return function(params)
-    if params == nil then
-        params = {}
+return function(startPosition, endPosition)
+    local startpos = startPosition
+    local endpos = endPosition
+
+    if type(startpos) == "number" then
+        local x,y,z = SpringGetUnitPosition(startpos)
+        startpos = Vec3(x,y,z)
+    elseif type(startpos) ~= "table" then
+        Spring.Echo("FindSafePath: Invalid start position type:", type(startpos))
     end
 
-    if params.startpos == nil or params.endpos == nil then
-        Logger.warn("FindSafePath", "No startPos provided")
+    if type(endpos) == "number" then
+        local x,y,z = SpringGetUnitPosition(endpos)
+        endpos = Vec3(x,y,z)
+    elseif type(endpos) ~= "table" then
+        Spring.Echo("FindSafePath: Invalid end position type:", type(endpos))   
+    end
+
+    if startpos == nil or endpos == nil then
+        Logger.warn("FindSafePath", "Start or end position is nil.")
         return {}
     end
 
-    local startPos = type(params.startPos) == "number" and Spring.GetUnitPosition(params.startPos) or params.startPos
-    local endPos = type(params.endPos) == "number" and Spring.GetUnitPosition(params.endPos) or params.endPos
-
-    local path = {startPos, endPos} -- temp straight line
+    local path = {startpos, endpos} -- temp straight line
 	return path
 end

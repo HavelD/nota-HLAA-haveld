@@ -6,7 +6,7 @@ local sensorInfo = {
 	license = "notAlicense",
 }
 
-local EVAL_PERIOD_DEFAULT = 0 -- acutal, no caching
+local EVAL_PERIOD_DEFAULT = -1 -- acutal, no caching
 
 function getInfo()
 	return {

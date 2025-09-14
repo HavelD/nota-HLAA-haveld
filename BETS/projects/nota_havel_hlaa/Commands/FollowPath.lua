@@ -121,7 +121,8 @@ function Run(self, units, parameter)
 				
 				-- check if unit reached current waypoint
 				-- local distance = unitPosition:Distance(targetWaypoint)
-				local distance = (unitPosition.x - targetWaypoint.x)^2 + (unitPosition.z - targetWaypoint.z)^2 -- Ignoring Height
+				local distance = math.sqrt((unitPosition.x - targetWaypoint.x)^2 + (unitPosition.z - targetWaypoint.z)^2) -- Ignoring Height
+				Spring.Echo("FollowPath: Unit " .. unitID .. " distance to waypoint " .. currentWaypointIndex .. " is " .. distance)
 				if distance < self.threshold then
 					-- move to next waypoint
 					self.unitWaypoints[unitID] = currentWaypointIndex + 1

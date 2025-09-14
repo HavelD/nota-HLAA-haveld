@@ -12,6 +12,12 @@ function getInfo()
 		onNoUnits = SUCCESS, -- instant success
 		tooltip = "Command loader units to load or unload target units",
 		parameterDefs = {
+			{
+				name = "fleet", -- loader units
+				variableType = "expression",
+				componentType = "editBox",
+				defaultValue = "{}",
+			},
 			{ 
 				name = "targetUnitID",
 				variableType = "expression",
@@ -41,7 +47,8 @@ end
 function Run(self, units, parameter)
 	local targetUnitID = parameter.targetUnitID -- can be single ID or array of IDs
 	local load = parameter.load -- boolean
-	
+	local fleet = parameter.fleet -- array of loader unit IDs, if empty use all selected units
+
 	-- convert single targetUnitID to array for uniform handling
 	local targetUnitIDs = {}
 	if type(targetUnitID) == "table" then
@@ -50,7 +57,14 @@ function Run(self, units, parameter)
 		targetUnitIDs = {targetUnitID}
 	end
 
-	local loaderUnits = Sensors.FilterUnitsByCategory(units, Categories.Common.transports)
+	if (fleet and #fleet > 0) then
+		Spring.Echo("LoaderCommand: Using specified fleet of size " .. #fleet)
+	else
+		Spring.Echo("LoaderCommand: No fleet specified, using all selected units")
+	end
+
+	local loaderUnits = (fleet and #fleet > 0) and fleet or units
+	local loaderUnits = Sensors.FilterUnitsByCategory(loaderUnits, Categories.Common.transports)
 	
 	-- check if we have matching counts
 	if #targetUnitIDs > 1 and #targetUnitIDs ~= #loaderUnits then
