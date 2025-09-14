@@ -18,7 +18,7 @@ local SpringGetUnitPosition = Spring.GetUnitPosition
 -- maxheight = core.MissionInfo().areaHeight
 
 -- @description return current wind statistics
-return function(mapPoints, allowGroups)
+return function(mapPoints, allowGroups, unitSelection)
     -- Takes absolute positions and return a formation with furthest point as first (so everyone should reach its position before this position is reached)
     -- units
 
@@ -33,10 +33,12 @@ return function(mapPoints, allowGroups)
         return nil
     end
 
+    local selectedUnits = unitSelection ~= nil and unitSelection or units
+
     local anchorPoint = nil
     local minMaxDist_global = math.huge
 
-    for _, unit in ipairs(units) do
+    for _, unit in ipairs(selectedUnits) do
         local pointX, pointY, pointZ = SpringGetUnitPosition(unit)
         -- local unitPosition = Vec3(pointX, pointY, pointZ)
 
@@ -69,13 +71,13 @@ return function(mapPoints, allowGroups)
         end
     end
 
-    if #units > #formation then
-        Spring.Echo("PointsToFormation: Warning - more units than formation points", #formation, #units)
+    if #selectedUnits > #formation then
+        Spring.Echo("PointsToFormation: Warning - more units than formation points", #formation, #selectedUnits)
         if allowGroups ~= nil and allowGroups then
             Spring.Echo("PointsToFormation: INFO - Groups are allowed - repeating formation to fit units")
             -- trim formation to number of units
             local iterator = math.huge
-            for i = 1, (#units - #formation) do
+            for i = 1, (#selectedUnits - #formation) do
                 if iterator > #formation then
                     iterator = 1
                     local randomPosX = math.random(10, 40) * ((math.random(0,1) == 0) and -1 or 1) -- random x pos around anchor
