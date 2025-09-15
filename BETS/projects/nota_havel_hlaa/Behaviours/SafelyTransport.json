@@ -207,7 +207,7 @@
 		"VXItLCfancPFpAJM7AtRjDFOvYCYqO2C": {
 			"height": 95,
 			"title": "store",
-			"width": 390,
+			"width": 398,
 			"x": 1824,
 			"y": -184
 		},
@@ -253,6 +253,13 @@
 			"x": 1824,
 			"y": 344
 		},
+		"kxk46REJxa23JgqLoGOw6ohqU2virIsY": {
+			"height": 95,
+			"title": "store",
+			"width": 277,
+			"x": 455,
+			"y": -409
+		},
 		"mvCHAX28vDkcGjrPAwDfM0HDT7lNXN20": {
 			"height": 94,
 			"title": "store",
@@ -295,6 +302,21 @@
 	} ],
 	"root": {
 		"children": [ {
+			"children": [],
+			"id": "kxk46REJxa23JgqLoGOw6ohqU2virIsY",
+			"nodeType": "luaCommand",
+			"parameters": [ {
+				"name": "var",
+				"value": "test"
+			}, {
+				"name": "value",
+				"value": "{Categories.Common.airUnits}"
+			}, {
+				"name": "scriptName",
+				"value": "store"
+			} ],
+			"scriptName": "store"
+		}, {
 			"children": [ {
 				"children": [],
 				"id": "5ZpCJyPvkLJoK8JUAb0mkl6sIAPTK9rv",
@@ -339,7 +361,7 @@
 					"value": "PeaksMap"
 				}, {
 					"name": "value",
-					"value": "nota_havel_hlaa.Peaks({hillHeightThreshold=1})"
+					"value": "nota_havel_hlaa.Peaks({hillHeightThreshold=50})"
 				}, {
 					"name": "scriptName",
 					"value": "store"

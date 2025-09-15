@@ -38,8 +38,9 @@ local function worldToGrid(worldPos, stepSize)
     
     -- Convert world coordinates to grid indices
     -- Assuming grid starts at (0, 0) in world coordinates
-    local gridI = math.floor(worldPos.z / stepSize) + 1  -- Z to I (row)
-    local gridJ = math.floor(worldPos.x / stepSize) + 1  -- X to J (column)
+    -- X maps to I (rows), Z maps to J (columns)
+    local gridI = math.floor(worldPos.x / stepSize) + 1  -- X to I (row)
+    local gridJ = math.floor(worldPos.z / stepSize) + 1  -- Z to J (column)
 
     return {gridI, gridJ}
 end
@@ -56,8 +57,9 @@ local function gridToWorld(gridPos, stepSize)
     local gridI, gridJ = gridPos[1], gridPos[2]
     
     -- Convert grid indices back to world coordinates (center of grid cell)
-    local worldX = (gridJ - 1) * stepSize + stepSize / 2
-    local worldZ = (gridI - 1) * stepSize + stepSize / 2
+    -- I (rows) maps to X, J (columns) maps to Z
+    local worldX = (gridI - 1) * stepSize + stepSize / 2
+    local worldZ = (gridJ - 1) * stepSize + stepSize / 2
     local worldY = getHeight(worldX, worldZ)
     
     return Vec3(worldX, worldY, worldZ)
