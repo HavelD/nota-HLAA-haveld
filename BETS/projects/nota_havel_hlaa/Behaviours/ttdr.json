@@ -136,9 +136,9 @@
 			"y": -193
 		},
 		"EdnluotLeCcf9CYh3XO9nIWi4OruqX2q": {
-			"height": 130,
+			"height": 109,
 			"title": "reference",
-			"width": 271,
+			"width": 268,
 			"x": 629,
 			"y": 557
 		},
@@ -146,8 +146,8 @@
 			"height": 193,
 			"title": "reference",
 			"width": 354,
-			"x": 1494,
-			"y": 814
+			"x": 1497,
+			"y": 818
 		},
 		"FWcGJCD0TE3BUV7qLqpe1m30h1DdQG4p": {
 			"height": 60,
@@ -230,8 +230,8 @@
 			"height": 60,
 			"title": "sequence",
 			"width": 143,
-			"x": 638,
-			"y": 767
+			"x": 656,
+			"y": 781
 		},
 		"amTe6akcElNpwiUPOlBzUtW777F3lZkG": {
 			"height": 94,
@@ -473,10 +473,7 @@
 						"name": "behaviourName",
 						"value": "nota_havel_hlaa.SearchArea"
 					} ],
-					"referenceInputs": [ {
-						"name": "AreaDef",
-						"value": "{4000, 100, 2000, 2000}"
-					} ],
+					"referenceInputs": [],
 					"referenceOutputs": []
 				}, {
 					"children": [ {

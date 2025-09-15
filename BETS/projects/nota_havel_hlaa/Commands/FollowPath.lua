@@ -37,6 +37,7 @@ local SpringGiveOrderToUnit = Spring.GiveOrderToUnit
 
 local SpringCategory = Spring.GetUnitDefID
 local airUnits = Categories.Common.airUnits
+local isDead = Spring.GetUnitIsDead
 
 local getHeight = Spring.GetGroundHeight
 
@@ -100,56 +101,58 @@ function Run(self, units, parameter)
 	-- process each unit individually
 	for u = 1, #selectedUnits do
 		local unitID = selectedUnits[u]
+		if not isDead(unitID) then -- skip dead units
 
-		-- Height correction for Flying units
-		local heightCorrection = 0
-		local thresholdCorrection = 0
-		local thisUnitDefID = SpringCategory(unitID)
-		if (airUnits[thisUnitDefID] ~= nil) then -- in category
-			-- Spring.Echo("Unit is flying, applying height correction.")
-			heightCorrection = 20 -- arbitrary value for height correction
-			thresholdCorrection = 100 -- increase threshold for flying units
-		end
+			-- Height correction for Flying units
+			local heightCorrection = 0
+			local thresholdCorrection = 0
+			local thisUnitDefID = SpringCategory(unitID)
+			if (airUnits[thisUnitDefID] ~= nil) then -- in category
+				-- Spring.Echo("Unit is flying, applying height correction.")
+				heightCorrection = 20 -- arbitrary value for height correction
+				thresholdCorrection = 100 -- increase threshold for flying units
+			end
 
-		-- end of correction
-		
-		-- initialize waypoint index for this unit if not exists
-		if not self.unitWaypoints[unitID] then
-			self.unitWaypoints[unitID] = 1
-		end
-
-		local currentWaypointIndex = self.unitWaypoints[unitID]
-
-		-- check if unit has finished the path
-		if currentWaypointIndex <= #path then
-			-- if unit has a path still to follow and is not finished
-		
-			allUnitsFinished = false
+			-- end of correction
 			
-			-- get current unit position
-			local unitX, unitY, unitZ = SpringGetUnitPosition(unitID)
-			if unitX ~= nil then
-				-- unit still exists (does live) -- maybe Spring.ValidUnitID ??
+			-- initialize waypoint index for this unit if not exists
+			if not self.unitWaypoints[unitID] then
+				self.unitWaypoints[unitID] = 1
+			end
 
-				local unitPosition = Vec3(unitX, unitY, unitZ)
-				local targetWaypoint = path[currentWaypointIndex] + Vec3(0, heightCorrection, 0)
+			local currentWaypointIndex = self.unitWaypoints[unitID]
+
+			-- check if unit has finished the path
+			if currentWaypointIndex <= #path then
+				-- if unit has a path still to follow and is not finished
+			
+				allUnitsFinished = false
 				
-				-- check if unit reached current waypoint
-				-- local distance = unitPosition:Distance(targetWaypoint)
-				local distance = math.sqrt((unitPosition.x - targetWaypoint.x)^2 + (unitPosition.z - targetWaypoint.z)^2) -- Ignoring Height
-				-- Spring.Echo("FollowPath: Unit " .. unitID .. " distance to waypoint " .. currentWaypointIndex .. " is " .. distance)
-				if distance < (self.threshold + thresholdCorrection) then
-					-- move to next waypoint
-					self.unitWaypoints[unitID] = currentWaypointIndex + 1
+				-- get current unit position
+				local unitX, unitY, unitZ = SpringGetUnitPosition(unitID)
+				if unitX ~= nil then
+					-- unit still exists (does live) -- maybe Spring.ValidUnitID ??
+
+					local unitPosition = Vec3(unitX, unitY, unitZ)
+					local targetWaypoint = path[currentWaypointIndex] + Vec3(0, heightCorrection, 0)
 					
-					-- check if there's a next waypoint
-					if self.unitWaypoints[unitID] <= #path then
-						local nextWaypoint = path[self.unitWaypoints[unitID]] + Vec3(0, heightCorrection, 0)
-						SpringGiveOrderToUnit(unitID, cmdID, nextWaypoint:AsSpringVector(), {})
+					-- check if unit reached current waypoint
+					-- local distance = unitPosition:Distance(targetWaypoint)
+					local distance = math.sqrt((unitPosition.x - targetWaypoint.x)^2 + (unitPosition.z - targetWaypoint.z)^2) -- Ignoring Height
+					-- Spring.Echo("FollowPath: Unit " .. unitID .. " distance to waypoint " .. currentWaypointIndex .. " is " .. distance)
+					if distance < (self.threshold + thresholdCorrection) then
+						-- move to next waypoint
+						self.unitWaypoints[unitID] = currentWaypointIndex + 1
+						
+						-- check if there's a next waypoint
+						if self.unitWaypoints[unitID] <= #path then
+							local nextWaypoint = path[self.unitWaypoints[unitID]] + Vec3(0, heightCorrection, 0)
+							SpringGiveOrderToUnit(unitID, cmdID, nextWaypoint:AsSpringVector(), {})
+						end
+					else
+						-- still moving to current waypoint, make sure order is given
+						SpringGiveOrderToUnit(unitID, cmdID, targetWaypoint:AsSpringVector(), {})
 					end
-				else
-					-- still moving to current waypoint, make sure order is given
-					SpringGiveOrderToUnit(unitID, cmdID, targetWaypoint:AsSpringVector(), {})
 				end
 			end
 		end
