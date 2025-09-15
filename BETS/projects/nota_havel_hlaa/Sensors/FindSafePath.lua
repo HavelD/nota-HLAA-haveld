@@ -114,26 +114,46 @@ local function findClosestSafePoint(gridPos, binaryGrid, maxRadius)
         return gridPos
     end
     
-    -- Set maximum search radius
-    maxRadius = maxRadius or math.max(gridHeight, gridWidth)
+    -- Set maximum search radius (limit to reasonable size for performance)
+    maxRadius = maxRadius or math.min(math.max(gridHeight, gridWidth), 100)
     
     -- Search in expanding circles
     for radius = 1, maxRadius do
-        -- Check all points at the current radius
-        for di = -radius, radius do
-            for dj = -radius, radius do
-                -- Only check points that are exactly at the current radius (on the circle perimeter)
-                local distance = math.max(math.abs(di), math.abs(dj))
-                if distance == radius then
-                    local checkI = startI + di
-                    local checkJ = startJ + dj
-                    
-                    -- Check if position is within bounds and safe
-                    if checkI >= 1 and checkI <= gridHeight and 
-                       checkJ >= 1 and checkJ <= gridWidth and
-                       binaryGrid[checkI][checkJ] then
-                        return {checkI, checkJ}
-                    end
+        -- More efficient: only check the actual perimeter of the circle
+        -- Top and bottom edges
+        for dj = -radius, radius do
+            local candidates = {
+                {startI - radius, startJ + dj}, -- top edge
+                {startI + radius, startJ + dj}  -- bottom edge
+            }
+            
+            for _, candidate in ipairs(candidates) do
+                local checkI, checkJ = candidate[1], candidate[2]
+                
+                -- Check if position is within bounds and safe
+                if checkI >= 1 and checkI <= gridHeight and 
+                   checkJ >= 1 and checkJ <= gridWidth and
+                   binaryGrid[checkI][checkJ] then
+                    return {checkI, checkJ}
+                end
+            end
+        end
+        
+        -- Left and right edges (excluding corners already checked)
+        for di = -radius + 1, radius - 1 do
+            local candidates = {
+                {startI + di, startJ - radius}, -- left edge
+                {startI + di, startJ + radius}  -- right edge
+            }
+            
+            for _, candidate in ipairs(candidates) do
+                local checkI, checkJ = candidate[1], candidate[2]
+                
+                -- Check if position is within bounds and safe
+                if checkI >= 1 and checkI <= gridHeight and 
+                   checkJ >= 1 and checkJ <= gridWidth and
+                   binaryGrid[checkI][checkJ] then
+                    return {checkI, checkJ}
                 end
             end
         end
