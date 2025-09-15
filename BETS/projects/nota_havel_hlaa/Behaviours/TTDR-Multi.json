@@ -14,11 +14,22 @@
 			"value": "store"
 		} ],
 		"scriptName": "store"
+	}, {
+		"children": [],
+		"id": "yfI0E6jeHEcm0APQaWssQ3o3OkAky7u6",
+		"nodeType": "luaCondition",
+		"parameters": [ {
+			"name": "expression",
+			"value": "(savedUnits ~= nil) and (savedUnits >= #Towers)"
+		}, {
+			"name": "repeat",
+			"value": "false"
+		} ]
 	} ],
 	"additionalParameters": {
 		"root": {
-			"height": 88,
-			"width": 180
+			"height": 128,
+			"width": 277
 		}
 	},
 	"inputs": [],
@@ -28,274 +39,281 @@
 			"height": 99,
 			"title": "store",
 			"width": 198,
-			"x": 742,
-			"y": 271
+			"x": 831,
+			"y": 258
 		},
 		"2CpWnoOt9xBKGU7nTlNTX6NBjMl7Lg8H": {
 			"height": 54,
 			"title": "sequence",
 			"width": 143,
-			"x": 1437,
-			"y": 651
+			"x": 1526,
+			"y": 638
 		},
 		"2wG6cfB3sNgDZAPmGgj1lmz9q1g12oRY": {
 			"height": 54,
 			"title": "success",
 			"width": 132,
-			"x": 2170,
-			"y": 557
+			"x": 2259,
+			"y": 544
 		},
 		"3QhFFNKdlsUIOr6VXXodG9wbRyNVX62w": {
 			"height": 89,
 			"title": "luaCondition",
 			"width": 223,
-			"x": 2561,
-			"y": 1028
+			"x": 2650,
+			"y": 1015
 		},
 		"5p9f85EtuqV2D9Vn7NaU37iJUd7gWbyZ": {
 			"height": 88,
 			"title": "luaCondition",
 			"width": 219,
-			"x": 1889,
-			"y": 855
+			"x": 1978,
+			"y": 842
 		},
 		"6SfZXXk7q4sSGWNMyMFYJnmQJzJtfirK": {
 			"height": 172,
 			"title": "reference",
 			"width": 362,
-			"x": 2836,
-			"y": 1062
+			"x": 2925,
+			"y": 1049
 		},
 		"7TWZViZ9vBgLefhrereAUDjtksw6gRKM": {
 			"height": 70,
 			"title": "parallel",
 			"width": 202,
-			"x": 1631,
-			"y": 725
+			"x": 1720,
+			"y": 712
 		},
 		"8FDay5Rm0t42175O2ItK5O5dzd4LEkPr": {
 			"height": 92,
 			"title": "nota_havel_hlaa.FollowPath",
 			"width": 241,
-			"x": 1077,
-			"y": 764
+			"x": 1166,
+			"y": 751
 		},
 		"8hMgfe7ppdNklT0pm7ZrPpfU5xg4EQaM": {
 			"height": 94,
 			"title": "store",
 			"width": 1083,
-			"x": 743,
-			"y": 174
+			"x": 832,
+			"y": 161
 		},
 		"CuFrm6kM4QsUSU0FENAsW9Wsp68R5PQf": {
 			"height": 88,
 			"title": "luaCondition",
 			"width": 223,
-			"x": 1894,
-			"y": 597
+			"x": 1983,
+			"y": 584
 		},
 		"CvzxHYEnHeH3cbBPgkcAoFJslBhJPFF6": {
 			"height": 94,
 			"title": "store",
 			"width": 198,
-			"x": 743,
-			"y": -254
+			"x": 832,
+			"y": -267
 		},
 		"Dhq3jByyL3cMhuFoTO85mjqN4JWDj6wU": {
 			"height": 71,
 			"title": "roleSplit",
 			"width": 205,
-			"x": 400,
-			"y": 574
+			"x": 489,
+			"y": 561
 		},
 		"ElZJkKyzMZBdMkaYNF9IStGwIhaj4QlZ": {
 			"height": 54,
 			"title": "success",
 			"width": 132,
-			"x": 2171,
-			"y": 1079
+			"x": 2260,
+			"y": 1066
 		},
 		"FG120m1SRzczCzalDvqubGZwtOriRfIt": {
 			"height": 54,
 			"title": "success",
 			"width": 132,
-			"x": 2837,
-			"y": 1001
+			"x": 2926,
+			"y": 988
 		},
 		"ISysmWvL8Njr6hWN7BSm773NeAct9KhL": {
 			"height": 100,
 			"title": "store",
 			"width": 339,
-			"x": 1631,
-			"y": 481
+			"x": 1720,
+			"y": 468
 		},
 		"Kov9np3SC3nf5x0z2kBgqkpeWLJccLg3": {
 			"height": 94,
 			"title": "store",
 			"width": 209,
-			"x": 945,
-			"y": -300
+			"x": 1034,
+			"y": -313
 		},
 		"LuqUeCJ8CS2ZjDZXwZOdtBWBtfADmYep": {
 			"height": 97,
 			"title": "store",
 			"width": 1084,
-			"x": 740,
-			"y": -24
+			"x": 829,
+			"y": -37
 		},
 		"ODOEyAEjfFjkRRFirOXiMSqjphm0byrU": {
 			"height": 172,
 			"title": "reference",
 			"width": 362,
-			"x": 2169,
-			"y": 881
+			"x": 2258,
+			"y": 868
 		},
 		"OoYY2xQ97yQCzRi4Nfize9MMHcizIO1i": {
 			"height": 60,
 			"title": "sequence",
 			"width": 143,
-			"x": 635,
-			"y": 656
+			"x": 724,
+			"y": 643
 		},
 		"PrhxQUt50gNF63Sq9ZqME9argoqhIkpO": {
 			"height": 60,
 			"title": "Game Information",
 			"width": 197,
-			"x": 483,
-			"y": -252
+			"x": 572,
+			"y": -265
 		},
 		"Pugp0pgKRrPZPVgrEyyKf7ZkSQy0liZp": {
 			"height": 88,
 			"title": "luaCondition",
 			"width": 221,
-			"x": 1886,
-			"y": 1107
+			"x": 1975,
+			"y": 1094
 		},
 		"R9Z9Gu6QdQMYrpsxFt7CjItkGrpauJFu": {
 			"height": 60,
 			"title": "sequence",
 			"width": 143,
-			"x": 231,
-			"y": 136
+			"x": 320,
+			"y": 123
 		},
 		"UCRodC8JWuwvnl4LbgJxaKdPrsG70tbS": {
 			"height": 109,
 			"title": "reference",
 			"width": 268,
-			"x": 694,
-			"y": 418
+			"x": 783,
+			"y": 405
 		},
 		"YOubyZ0ndI2yhx2weHKjO03Dco7IcFGp": {
 			"height": 60,
 			"title": "repeat",
 			"width": 131,
-			"x": 1055,
-			"y": 609
+			"x": 1144,
+			"y": 596
 		},
 		"curFFi1WKx89ddfSamV324aopb2ju8PM": {
 			"height": 172,
 			"title": "reference",
 			"width": 362,
-			"x": 2168,
-			"y": 1135
+			"x": 2257,
+			"y": 1122
 		},
 		"dXx5Hb2axaxThzgetUU54I6ooqVfBtG6": {
 			"height": 88,
 			"title": "luaCondition",
 			"width": 232,
-			"x": 2550,
-			"y": 763
+			"x": 2639,
+			"y": 750
 		},
 		"eRKiKi0lVB5leNkTxGmmtyjRMGncmQwk": {
 			"height": 88,
 			"title": "luaCondition",
 			"width": 353,
-			"x": 1051,
-			"y": 527
+			"x": 1144,
+			"y": 501
 		},
 		"ei2PijQjGPBgNGWODmNvUQWnapOWHWrc": {
 			"height": 172,
 			"title": "reference",
 			"width": 362,
-			"x": 2834,
-			"y": 776
+			"x": 2923,
+			"y": 763
 		},
 		"gVfhWD7JSytqlcfyaxLQBPq194tbD8K9": {
 			"height": 94,
 			"title": "store",
 			"width": 1083,
-			"x": 745,
-			"y": 75
+			"x": 834,
+			"y": 62
 		},
 		"hRiBR1KBgaNwZv6NSMdac8qXytoIEfmh": {
 			"height": 54,
 			"title": "success",
 			"width": 132,
-			"x": 2835,
-			"y": 718
+			"x": 2924,
+			"y": 705
 		},
 		"o1hVx19PNTYdRQvSCCS4TU9BOFJ2QUWN": {
 			"height": 100,
 			"title": "store",
 			"width": 607,
-			"x": 973,
-			"y": 274
+			"x": 1062,
+			"y": 261
 		},
 		"oDVgg4nbcw3tcq4WOJ7CdzsjJ9h4EYuJ": {
 			"height": 54,
 			"title": "success",
 			"width": 132,
-			"x": 2174,
-			"y": 831
+			"x": 2263,
+			"y": 818
 		},
 		"uMFVknEAN3tuquHtS6xXXwAzemiaMDdV": {
 			"height": 54,
 			"title": "nota_common.manualMissionEnd",
 			"width": 296,
-			"x": 1625,
-			"y": 421
+			"x": 1714,
+			"y": 408
 		},
 		"ve6CBOKkFhnect6m6XHy3JwblpcwNGb3": {
 			"height": 70,
 			"title": "parallel",
 			"width": 202,
-			"x": 817,
-			"y": 701
+			"x": 906,
+			"y": 688
 		},
 		"yK96d43mv1vB8d0Orov9fEKHOT7wXqXg": {
 			"height": 172,
 			"title": "reference",
 			"width": 358,
-			"x": 2168,
-			"y": 616
+			"x": 2257,
+			"y": 603
 		},
 		"yZVdmJaQm4S4UYPbAJy0zzBkcrAQFQtz": {
 			"height": 94,
 			"title": "store",
 			"width": 198,
-			"x": 744,
-			"y": -156
+			"x": 833,
+			"y": -169
+		},
+		"yfI0E6jeHEcm0APQaWssQ3o3OkAky7u6": {
+			"height": 88,
+			"title": "luaCondition",
+			"width": 353,
+			"x": 1140,
+			"y": 403
 		},
 		"yp4JomiapaWtSBbTV3bsCHENbDDoQRCY": {
 			"height": 72,
 			"title": "wait",
 			"width": 131,
-			"x": 845,
-			"y": 590
+			"x": 934,
+			"y": 577
 		},
 		"zH5hexo3f0LE5gvpm9yvhpcbXkXZ9imW": {
 			"height": 94,
 			"title": "store",
 			"width": 198,
-			"x": 742,
-			"y": -354
+			"x": 831,
+			"y": -367
 		},
 		"zvSJoK2rN82Jyr1o7oXkBnPNlvseC5jR": {
 			"height": 54,
 			"title": "Main Variable",
 			"width": 169,
-			"x": 497,
-			"y": 27
+			"x": 586,
+			"y": 14
 		}
 	},
 	"roles": [ {
@@ -676,7 +694,7 @@
 							"nodeType": "luaCondition",
 							"parameters": [ {
 								"name": "expression",
-								"value": "(savedUnits ~= nil) and (savedUnits >= #Towers)"
+								"value": "core.MissionInfo().score > 100"
 							}, {
 								"name": "repeat",
 								"value": "false"
