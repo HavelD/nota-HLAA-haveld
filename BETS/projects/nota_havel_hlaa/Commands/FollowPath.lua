@@ -67,10 +67,10 @@ function Run(self, units, parameter)
 	local path = parameter.pathArray -- array of Vec3
 	local useSelected = false
 	if (parameter.selectedUnits ~= nil and type(parameter.selectedUnits) == "table" and #parameter.selectedUnits > 0) then
-		Spring.Echo("FollowPath: Using selected units for path following.")
+		-- Spring.Echo("FollowPath: Using selected units for path following.")
 		useSelected = true
 	else
-		Spring.Echo("FollowPath: Using all command units for path following.")
+		-- Spring.Echo("FollowPath: Using all command units for path following.")
 	end
 	local selectedUnits = useSelected and parameter.selectedUnits or units-- array of unit IDs
 
