@@ -303,6 +303,9 @@ return function(startPosition, endPosition, safegrid)
     local startGridPos = worldToGrid(startpos, safegrid.stepSize)
     local endGridPos = worldToGrid(endpos, safegrid.stepSize)
     
+    local tempFirstStartGridPos = startGridPos
+    local tempFirstEndGridPos = endGridPos
+
     if not startGridPos or not endGridPos then
         Logger.warn("FindSafePath", "Failed to convert positions to grid coordinates")
         return {}
@@ -371,7 +374,11 @@ return function(startPosition, endPosition, safegrid)
             startPosition = startpos, 
             endPosition = endpos,
             safeStart = gridToWorld(startGridPos, safegrid.stepSize),
-            safeEnd = gridToWorld(endGridPos, safegrid.stepSize)
+            safeEnd = gridToWorld(endGridPos, safegrid.stepSize),
+            firstStartGridPos = gridToWorld(tempFirstStartGridPos, safegrid.stepSize),
+            firstEndGridPos = gridToWorld(tempFirstEndGridPos, safegrid.stepSize),
+            safeGridBinary = binaryGrid,
+            stepsize = safegrid.stepSize,
         }
     }
 end
