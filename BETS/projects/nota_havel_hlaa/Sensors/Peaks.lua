@@ -42,7 +42,7 @@ return function(params)
     local aboveThreshold = {}
     local mapMinHeight = math.huge
 
-    -- Getting height of each point in the grid
+    -- Create Height Map
     for x = 1, maxIndexX do
         gridHeight[x] = {}
         aboveThreshold[x] = {}
@@ -153,6 +153,7 @@ return function(params)
     end
 
     -- Putting it here just for ease and less files
+    -- But yes, I could create separate sensor that removes points that are closeset to given list of different points
     if params.removeClosest ~= nil then
         local removeList = params.removeClosest
         if type(removeList) ~= "table" then

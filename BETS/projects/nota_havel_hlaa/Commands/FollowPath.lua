@@ -81,29 +81,23 @@ function Run(self, units, parameter)
 	end
 	--<<-------------FIXING Y coordinate
 
-	
-	-- validation
 	if not path or #path == 0 then
 		Logger.warn("FollowPath", "No path provided or path is empty")
 		return FAILURE
 	end
 	
-	-- initialize unit waypoint tracking if not exists
 	if not self.unitWaypoints then
 		self.unitWaypoints = {}
 	end
 	
-	-- pick the spring command implementing the move
-	local cmdID = CMD.MOVE
-	
+	local cmdID = CMD.MOVE -- Spring command (source: Trello)
 	local allUnitsFinished = true
 
-	-- process each unit individually
 	for u = 1, #selectedUnits do
 		local unitID = selectedUnits[u]
 		if not isDead(unitID) then -- skip dead units
 
-			-- Height correction for Flying units
+			-- Height and Threshold correction for Flying units
 			local heightCorrection = 0
 			local thresholdCorrection = 0
 			local thisUnitDefID = SpringCategory(unitID)
@@ -112,31 +106,24 @@ function Run(self, units, parameter)
 				heightCorrection = 20 -- arbitrary value for height correction
 				thresholdCorrection = 100 -- increase threshold for flying units
 			end
-
-			-- end of correction
 			
-			-- initialize waypoint index for this unit if not exists
-			if not self.unitWaypoints[unitID] then
+			if not self.unitWaypoints[unitID] then -- Initialize waypoint index if does not yet exist
 				self.unitWaypoints[unitID] = 1
 			end
 
 			local currentWaypointIndex = self.unitWaypoints[unitID]
 
-			-- check if unit has finished the path
-			if currentWaypointIndex <= #path then
-				-- if unit has a path still to follow and is not finished
-			
+			if currentWaypointIndex <= #path then -- if unit has a path still to follow and is not finished
 				allUnitsFinished = false
 				
-				-- get current unit position
-				local unitX, unitY, unitZ = SpringGetUnitPosition(unitID)
+				local unitX, unitY, unitZ = SpringGetUnitPosition(unitID) -- current unit position
 				if unitX ~= nil then
-					-- unit still exists (does live) -- maybe Spring.ValidUnitID ??
+					-- unit still exists (does live) -- maybe Spring.ValidUnitID ?? 
 
 					local unitPosition = Vec3(unitX, unitY, unitZ)
 					local targetWaypoint = path[currentWaypointIndex] + Vec3(0, heightCorrection, 0)
 					
-					-- check if unit reached current waypoint
+					-- Is Close enough to go to next?? 
 					-- local distance = unitPosition:Distance(targetWaypoint)
 					local distance = math.sqrt((unitPosition.x - targetWaypoint.x)^2 + (unitPosition.z - targetWaypoint.z)^2) -- Ignoring Height
 					-- Spring.Echo("FollowPath: Unit " .. unitID .. " distance to waypoint " .. currentWaypointIndex .. " is " .. distance)
@@ -150,7 +137,7 @@ function Run(self, units, parameter)
 							SpringGiveOrderToUnit(unitID, cmdID, nextWaypoint:AsSpringVector(), {})
 						end
 					else
-						-- still moving to current waypoint, make sure order is given
+						-- still moving to current waypoint
 						SpringGiveOrderToUnit(unitID, cmdID, targetWaypoint:AsSpringVector(), {})
 					end
 				end
@@ -158,7 +145,7 @@ function Run(self, units, parameter)
 		end
 	end
 	
-	-- return SUCCESS if all units finished their paths
+	-- returning SUCCESS if all units finished their paths
 	if allUnitsFinished then
 		return SUCCESS
 	else
