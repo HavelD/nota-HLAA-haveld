@@ -6,15 +6,15 @@ Solution of my homeworks for HLAA. Each solution was tested and have widget to s
 
 ---
 ---
+Unit selection: In all tasks you can just select all units (CTRL+A) - it should work fine
 Click to open information about Task completion and provided solution and its files
-
 <details>
 <summary>Task: Sandsail2</summary>
 
 ### Behaviour: ***Sandsail*** <img src="BETS/projects/nota_havel_hlaa/Behaviours/Sandsail.png" alt="sandsail icon" style="height:1em; vertical-align:middle;" />
 
 #### List of files:
-- Solution results
+- Solution results (folder: *Homework Documents*)
     - infolog_sandsail2.txt
 - Delopment files
     - Behaviours
@@ -48,7 +48,7 @@ Click to open information about Task completion and provided solution and its fi
 ### Behaviour: ***CTP2*** <img src="BETS/projects/nota_havel_hlaa/Behaviours/CTP2.png" alt="CTP2 icon" style="height:1em; vertical-align:middle;" />
 
 #### List of files:
-- Solution results
+- Solution results (folder: *Homework Documents*)
     - infolog_ctp2.txt
 - Development files
     - Behaviours
@@ -88,8 +88,9 @@ Click to open information about Task completion and provided solution and its fi
 ### Behaviour: ***TTDR-Multi*** <img src="BETS/projects/nota_havel_hlaa/Behaviours/TTDR-Multi.png" alt="TTDR-Multi icon" style="height:1em; vertical-align:middle;" />
 
 #### List of files:
-- Solution results
+- Solution results (folder: *Homework Documents*)
     - infolog_ttdr.txt
+    - 20250915_052900_mffarena002 v1_103.sdfz
 - Development files
     - Behaviours
         - TTDR-Multi.json (main behaviour)
