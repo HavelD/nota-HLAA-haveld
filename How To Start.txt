@@ -1,0 +1,20 @@
+Open VeraCrypt
+
+in bottom part "Volume" click //Select file// and choose "n" file in this folder
+
+Then click "Mount"
+
+the password is: "nota"
+
+In the "This Computer" you should see new Disk "N:"
+Open it and use.
+
+
+***For game to start***
+You can use Shortcut "Start NOTA" [Otherwise open "N:\nota_dev_pack_mff\distributions\nota\notAlobby\notAlobby.exe"]
+
+***For Development***
+files are in 
+	"N:\nota_dev_pack_mff\000\SpringData\LuaUI"
+	- Here will be all files created by you or by game for your development.
+	- Manually adding files just into: "Widgets" and "BETS\projects\<your_project_name>\{Sensors OR Commands}" 
